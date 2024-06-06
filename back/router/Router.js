@@ -1,28 +1,30 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
 
-//import des modules
-const auth = require('../middleware/Auth')
-const register = require('../middleware/register')
-const ListParams = require("../middleware/ParamsList")
-const Action = require("../controller/ParamsAction")
-const Client = require("../controller/Client")
+// Import des modules
+const auth = require('../middleware/Auth');
+const register = require('../middleware/register');
+const ListParams = require("../middleware/ParamsList");
+const Action = require("../controller/ParamsAction");
+const ActClient = require("../controller/Client")
 
-router.post("/casavicene")
-//connexion et création de compte
-router.post("/authentification", auth)
-router.post("/register", register)
+// Route principale (semble être une route par défaut, mais elle n'a pas de gestionnaire)
+// router.post("/casavicene"); // Cette ligne semble inutile sans gestionnaire
 
-//affichage d'éléments
-router.post("/parametres", ListParams)
-router.post("/choix_params", Action.ChoixParams)
+// Connexion et création de compte
+router.post("/authentification", auth);
+router.post("/register", register);
 
-//routes d'ajout d'éléments
-router.post("/gestionRubriquesSoins", Action.GestionRubriqueSoins)
-router.post("/GestionFamilleActes", Action.GestionFamillesActes)
-router.post("/new_patient", Client.CreatePatient)
+// Affichage d'éléments
+router.post("/parametres", ListParams);
+router.post("/choix_params", Action.ChoixParams);
 
-//routes de modification d'éléments
-router.post("/Modify_patient", Client.ModifyPatient)
+// Routes d'ajout d'éléments
+router.post("/gestionRubriquesSoins", Action.GestionRubriqueSoins);
+router.post("/gestionFamilleActes", Action.GestionFamillesActes); // Correction du nom de la route
+router.post("/patient", ActClient.CreationPatient);
 
-module.exports = router
+// Routes de modification d'éléments
+router.post("/modify_patient", ActClient.ModifiactionPatient); // Correction du nom de la route
+
+module.exports = router;

@@ -2,7 +2,7 @@ const db = require("../utils/dbconnector")
 
 async function List(req, res){
     try{
-        const [row] = await db.execute('CALL ListeParametres')
+        const [row] = await db.execute('CALL ListParametre')
         if(row>0){
             res.status(200).json({message: "opération réussie", row})
         }else {
