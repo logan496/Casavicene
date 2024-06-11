@@ -1,4 +1,16 @@
 /* Create_client.css */
+.form-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
 .nav-bar {
     padding: 10px;
+}
+
+.form-container__line{
+    display: flex;
+    flex-direction: row;
 }

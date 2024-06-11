@@ -1,8 +1,8 @@
 import "../style/clientForm-2.css"
 function ClientForm2(){
     return(
-        <div className="client-form">
-            <form className="client__form">
+        <div className="client-form2">
+            <form className="client__form2">
                 <div className="form-group2">
                     <label htmlFor="Boite_postale">Boîte postale</label>
                     <input type="text" id="boite_postale" name="boite_postale"/>
@@ -16,23 +16,23 @@ function ClientForm2(){
                     <input type="text" id="pays" name="pays"/>
                 </div>
                 <div className="form-group2">
-                    <label htmlFor="Telephone"></label>
+                    <label htmlFor="Telephone">Téléphone</label>
                     <input type="number" id="tel" name="tel"/>
                 </div>
                 <div className="form-group2">
-                    <label htmlFor="Fax"></label>
+                    <label htmlFor="Fax">Fax</label>
                     <input type="number" id="fax" name="fax"/>
                 </div>
                 <div className="form-group2">
-                    <label htmlFor="Email"></label>
+                    <label htmlFor="Email">Add.Email</label>
                     <input type="email" id="email" name="email"/>
                 </div>
                 <div className="form-group2">
-                    <label htmlFor="Adresse"></label>
+                    <label htmlFor="Adresse">Adresse</label>
                     <input type="text" id="adresse" name="adresse"/>
                 </div>
-                <div className="form-group3">
-                    <label htmlFor="Adresse_fact"></label>
+                <div className="form-group2">
+                    <label htmlFor="Adresse_fact">Adresse fact</label>
                     <input type="text" id="adresse_fact" name="adresse_fact"/>
                 </div>
             </form>

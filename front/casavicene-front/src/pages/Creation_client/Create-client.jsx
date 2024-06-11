@@ -13,9 +13,11 @@ function CreateClient() {
             </div>
             <div className="form-container">
                 <ClientForm1 />
-                {/*<ClientForm2 />*/}
-                {/*<ClientForm3 />*/}
-                {/*<ClientForm4 />*/}
+                <div className="form-container__line">
+                    <ClientForm2 />
+                    <ClientForm3 />
+                </div>
+                <ClientForm4 />
             </div>
         </>
     );
