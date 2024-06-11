@@ -1,0 +1,54 @@
+.client-form {
+    background-color: rgba(222, 114, 107, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1000px; /* Augmentation de la largeur maximale */
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.client__form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes de largeur égale */
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacement entre l'étiquette et l'input */
+}
+
+.form-group label {
+    flex: 1; /* Prend l'espace nécessaire */
+    white-space: nowrap; /* Empêche le retour à la ligne des étiquettes */
+    text-align: right; /* Alignement à droite des étiquettes */
+    margin-right: 10px; /* Espacement après l'étiquette */
+}
+
+.form-group input[type="text"] {
+    flex: 2; /* Prend l'espace restant */
+    padding: 10px; /* Augmenter le padding pour un meilleur confort */
+    font-size: 16px; /* Augmenter la taille de la police */
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    grid-column: span 2; /* S'étend sur deux colonnes */
+    justify-content: center; /* Centrer horizontalement la checkbox */
+}
+
+.form-checkbox label {
+    margin-right: 10px;
+    text-align: left; /* Alignement à gauche de l'étiquette */
+}
+
+.form-checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
