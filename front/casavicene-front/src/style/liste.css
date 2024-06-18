@@ -1,0 +1,17 @@
+.liste{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.liste__recherche{
+    border: 1px #2A2A8B;
+    border-radius: 10px;
+    /*flex sur la manniére de gérer la taille*/
+    
+}
+
+.search-form{
+    display: flex;
+    flex-direction: row;
+}

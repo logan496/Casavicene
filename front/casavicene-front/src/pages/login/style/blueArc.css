@@ -1,0 +1,34 @@
+.blue__arc{
+    background-color: #4B49AC;
+    color: white;
+    align-items: center;
+    height: 80px;
+    padding-top: 30px;
+    position: relative;
+    text-align: center;
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.blue__arc::after{
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 80px;
+    background-color: #4B49AC;
+    border-bottom-left-radius: 80%;
+    border-bottom-right-radius: 80%;
+    z-index: -1;
+}
+
+.arc__title h1{
+    margin: 0;
+    color: white;
+    font-size: 34px;
+    font-family: Inter, sans-serif;
+}

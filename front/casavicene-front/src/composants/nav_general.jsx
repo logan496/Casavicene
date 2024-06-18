@@ -7,7 +7,8 @@ import fileplus from '../assets/file-medical-solid.svg';
 import clipboard from '../assets/clipboard-list-solid.svg';
 import '../style/nav_general.css';
 
-function NavGeneral() {
+function NavGeneral(props) {
+    const { scaleValue } = props; // Destructure props to extract scaleValue
     return (
         <div className="nav-wrapper">
             <nav className="nav-general">
@@ -55,7 +56,7 @@ function NavGeneral() {
                 </div>
             </nav>
             <div className="nav-title">
-                <h1>Creation du Client</h1>
+                <h1>{scaleValue}</h1>
             </div>
         </div>
     );
