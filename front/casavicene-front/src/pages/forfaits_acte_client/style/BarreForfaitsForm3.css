@@ -1,0 +1,45 @@
+.barre-contenair{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px black solid;
+    font-family: Inter, sans-serif;
+    height: 100%;
+    width: 350px;
+    label{
+        padding: 10px;
+    }
+    div{
+        border: 1px #050478 solid;
+        border-radius: 10px;
+        text-align: center;
+        /*height: 30px;*/
+        /*width: 200px;*/
+        padding: 5px;
+        width: 200px;
+        font-size: 14px;
+        margin: 10px;
+    }
+}
+
+.journal-caisse{
+    border: none;
+    background-color: rgba(222, 114, 107, 0.7);
+    color: white;
+    font-weight: bold;
+    width: 200px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 100px;
+    margin-bottom: 10px;
+}
+
+.journal-caisse:hover{
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+.cross{
+    align-items: center;
+}
+.cross-close{
+    width: 30px;
+}

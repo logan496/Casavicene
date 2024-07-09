@@ -9,7 +9,7 @@ function CreateClient() {
     return (
         <>
             <div className="nav-bar">
-                <Nav_general />
+                <Nav_general scaleValue={"Creation du client"}/>
             </div>
             <div className="form-container">
                 <ClientForm1 />

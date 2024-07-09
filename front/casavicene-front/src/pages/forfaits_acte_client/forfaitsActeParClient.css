@@ -1,0 +1,30 @@
+.button-send {
+    width: 180px;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    margin-right: 20px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.button-send:hover{
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
+}
+
+.forfaits__button{
+    padding-left: 40px;
+}
+
+.img-barres{
+    width: 30px;
+}
+
+.button-aff{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}

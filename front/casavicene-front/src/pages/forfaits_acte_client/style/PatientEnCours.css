@@ -1,0 +1,32 @@
+.patient__cour-contenair{
+    background-color: rgba(28, 114, 162, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1080px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Inter, sans-serif;
+}
+
+.patient-tab{
+    background-color: white;
+    border-radius: 20px;
+    border: none;
+    width: 1010px;
+}
+
+.preinscription-contener{
+    padding: 10px;
+    input{
+        width: 800px;
+        padding: 10px;
+        margin: 10px;
+        border: none;
+        border-radius: 10px;
+        background-color: rgba(42, 42, 139, 0.7);
+        color: white;
+        font-weight: bold;
+        font-family: Inter, sans-serif;
+    }
+}
