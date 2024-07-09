@@ -1,0 +1,52 @@
+.form2Charge-contenair{
+    background-color: white;
+    border-radius: 10px;
+    border: 1px #2A2A8B solid;
+    font-family: Inter, sans-serif;
+    padding: 20px;
+    width: 100%;
+    max-width: 1080px; /* Augmentation de la largeur maximale */
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form2__charge{
+    padding: 10px;
+}
+
+.form2__charge select{
+    width: 15%;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.form2__charge input, .elements-prestation input{
+    width: 15%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px black solid;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.ticket{
+    padding-left: 10px;
+}
+.prestation-sup, .button_valider{
+    width: 15%;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(222, 114, 107, 0.7);
+    color: white;
+}
+
+
+.prestation-sup:hover, .button_valider:hover{
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}

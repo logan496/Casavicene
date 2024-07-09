@@ -3,7 +3,7 @@
     border-radius: 10px;
     padding: 20px;
     width: 100%;
-    max-width: 1080px; /* Augmentation de la largeur maximale */
+    max-width: 1080px;
     margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
