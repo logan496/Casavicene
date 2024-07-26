@@ -1,0 +1,26 @@
+.nav-accueil{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter, sans-serif;
+    padding: 20px;
+}
+
+.nav__accueil{
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: rgba(28, 114, 162, 1);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav__accueil:hover{
+    background-color: rgba(5, 4, 120, 1);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
