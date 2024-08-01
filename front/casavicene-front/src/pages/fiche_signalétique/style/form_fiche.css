@@ -1,0 +1,26 @@
+.formSign-contener{
+    background-color: rgba(222, 114, 107, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1080px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form__fiche{
+    padding: 10px;
+
+    label{
+        padding-right: 10px;
+
+    }
+
+    input, select{
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        margin: 10px;
+    }
+
+}
