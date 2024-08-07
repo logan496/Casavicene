@@ -12,3 +12,4 @@ router.post('/send/patients', auth('patient:read'), (req, res) => {
     //je dois ajouter la méthode pour lister les patiens
     res.send('Patients liste')
 })
+

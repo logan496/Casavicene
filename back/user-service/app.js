@@ -2,16 +2,19 @@ const express = require('express')
 const dotenv = require('dotenv')
 const passport = require('passport')
 const router = require('./src/routes/router')
+const {jwtStrategy} = require("./src/config/passport");
 dotenv.config()
 
 const app = express()
 app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 
 app.get('/', (req, res) => {
     res.send('User service')
 })
 
 app.use(passport.initialize())
+passport.use(jwtStrategy)
 
 app.use('/users', router)
 

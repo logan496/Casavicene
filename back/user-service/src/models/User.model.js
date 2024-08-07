@@ -39,6 +39,11 @@ const UserModel = new Schema({
 UserModel.plugin(toJSON)
 UserModel.plugin(paginate)
 
+UserModel.statics.isNameTaken = async function (name, excludeUserId){
+    const user = await this.findOne({email, _id: {$ne: excludeUserId}})
+    return !!user
+}
+
 UserModel.statics.isPasswordMatch = async function(password){
     const user = this;
     return bcrypt.compare(password, user.password)
