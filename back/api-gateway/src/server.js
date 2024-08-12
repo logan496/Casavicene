@@ -1,11 +1,10 @@
 const express = require('express')
 const morgan = require('morgan')
-const {createProxyMiddleware} = require('http-proxy-middleware')
-const http = require("http");
 const config = require('./config/config')
 const setupProxy = require("./config/proxy")
 const app = express()
 const cors = require("cors")
+const httpStatus = require("http-status")
 
 require('dotenv').config()
 
@@ -25,7 +24,7 @@ setupProxy(app,"/ReceptionCaisse", config.services.reception_caisse)
 setupProxy(app,'/Notification', config.services.notification)
 
 app.use((req, res) => {
-    res.status(404).json({message: 'Ressource not found'})
+    res.status(httpStatus.NOT_FOUND).json({message: 'Ressource not found'})
 })
 
 const PORT = config.port
