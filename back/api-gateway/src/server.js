@@ -5,7 +5,7 @@ const setupProxy = require("./config/proxy")
 const app = express()
 const cors = require("cors")
 const httpStatus = require("http-status")
-
+const ApiError = require("./utils/ApiError")
 require('dotenv').config()
 
 app.use(morgan('dev'))
@@ -23,8 +23,8 @@ setupProxy(app,"/Client", config.services.client)
 setupProxy(app,"/ReceptionCaisse", config.services.reception_caisse)
 setupProxy(app,'/Notification', config.services.notification)
 
-app.use((req, res) => {
-    res.status(httpStatus.NOT_FOUND).json({message: 'Ressource not found'})
+app.use((req, res,next) => {
+    next(new ApiError(httpStatus.NOT_FOUND, 'Not found'))
 })
 
 const PORT = config.port

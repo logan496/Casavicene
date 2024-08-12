@@ -10,7 +10,8 @@ const envVarsSchema = Joi.object()
     USER_SERVICE_URL: Joi.string().required().description('URL for the user service'),
     RECEPTIONCAISSE_SERVICE_URL: Joi.string().required().description('URL for the recetion/caisse service'),
     NOTIFICATION_SERVICE_URL: Joi.string().required().description('URL for the notification service'),
-    CLIENT_SERVICE_URL: Joi.string().required().description('URL for the client service')
+    CLIENT_SERVICE_URL: Joi.string().required().description('URL for the client service'),
+    TIMEOUT: Joi.number().default(5000)
 })
 .unknown()
 
@@ -27,5 +28,8 @@ module.exports = {
         reception_caisse: envVars.RECEPTIONCAISSE_SERVICE_URL,
         notification: envVars.NOTIFICATION_SERVICE_URL,
         client: envVars.CLIENT_SERVICE_URL
+    },
+    time: {
+        timeout: envVars.TIMEOUT
     }
 }

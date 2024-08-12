@@ -14,6 +14,7 @@ const xss = require('xss-clean')
 const helmet = require('helmet')
 const mongoSanitize = require('express-mongo-sanitize')
 const compression = require('compression')
+const logger = require("./config/logger")
 
 dotenv.config()
 
@@ -39,7 +40,7 @@ app.use(mongoSanitize())
 app.use(compression())
 
 app.use(cors())
-app.option('*', cors())
+app.options('*', cors())
 
 
 // if(config.env === "production"){
@@ -49,6 +50,7 @@ app.option('*', cors())
 app.use('/auth', router)
 
 app.use((req, res, next) => {
+    logger.info(`Received ${req.method} request for ${req.url}`)
     next(new ApiError(httpStatus.NOT_FOUND, 'Not found'))
 })
 
