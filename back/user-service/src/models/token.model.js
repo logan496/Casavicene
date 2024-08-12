@@ -3,10 +3,10 @@ const {toJSON} = require('./plugins')
 const {tokenTypes} = require('../config/tokens')
 const {model, Schema} = require('mongoose')
 
-const tokenSchema = Schema({
+const tokenSchema = new Schema({
     token: {
-        types: String,
-        require: true,
+        type: String,
+        required: true,
         index: true
     },
     user: {

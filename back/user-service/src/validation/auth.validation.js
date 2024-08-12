@@ -5,13 +5,15 @@ const {password} = require('./mongoId.validation')
 const register = {
     body: Joi.object().keys({
         name: Joi.string().required(),
+        email: Joi.string().required().email(),
         password: Joi.string().required().custom(password)
     })
 }
 
 const login = {
     body: Joi.object().keys({
-        name: Joi.string().required(),
+        email: Joi.string().required(),
+        // name: Joi.string().required(),
         password: Joi.string().required()
     })
 }
@@ -30,7 +32,8 @@ const refreshTokens = {
 
 const forgotPassword = {
     body: Joi.object().keys({
-        name: Joi.string().required()
+        // name: Joi.string().required()
+        email: Joi.string().email().required()
     })
 }
 

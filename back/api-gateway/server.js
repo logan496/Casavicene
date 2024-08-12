@@ -14,7 +14,12 @@ app.use(express.json())
 
 app.use("/Users", createProxyMiddleware({
     target: process.env.USER_SERVICE_URL,
-    changeOrigin: true
+    changeOrigin: true,
+    timeout: 5000,
+    proxyTimeout: 5000,
+    onError: (err, req, res) => {
+        res.status(500).json({messsage: 'Service Users isn\'t available'})
+    }
 }))
 
 app.use('/Client', createProxyMiddleware({
@@ -24,7 +29,8 @@ app.use('/Client', createProxyMiddleware({
 
 app.use('/ReceptionCaisse', createProxyMiddleware({
     target: process.env.RECEPTIONCAISSE_SERVICE_URL,
-    changeOrigin: true
+    changeOrigin: true,
+
 }))
 
 app.use('/Notif', createProxyMiddleware({

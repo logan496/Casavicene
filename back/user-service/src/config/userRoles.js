@@ -1,4 +1,4 @@
-const RBAC = require('rbac').default
+// const RBAC = require('rbac').default
 const Permissions = require('./elementsPermissions')
 
 const roles = ['admin', 'medecin', 'infirm', 'user']
@@ -21,6 +21,10 @@ const grants = {
     user: []
 }
 
-const rbac = new RBAC({roles, Permissions, grants})
+// const rbac = new RBAC({roles, Permissions, grants})
 
-module.exports =  rbac
+// module.exports =  rbac
+module.exports = {
+    roles,
+    grants
+}

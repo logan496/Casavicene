@@ -1,13 +1,25 @@
 const {model, Schema} =  require("mongoose")
 const {toJSON, paginate} = require('./plugins')
-const {grants, roles} =  require('../config/userRoles')
+const {roles} =  require('../config/userRoles')
 
 const UserModel = new Schema({
     name:{
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
-
+    email: {
+        type: String,
+        required: true,
+        trim: true,
+        unique: true,
+        lowercase: true,
+        validate(value) {
+            if(!validator.isEmail(value)){
+                throw new Error('Invalid email')
+            }
+        }
+    },
     password: {
         type: String,
         required: true,
@@ -19,13 +31,7 @@ const UserModel = new Schema({
         },
         private: true
     },
-    roles: {
-        type: [String],
-        enum: grants,
-        default: 'user',
-
-    },
-    userGroup:{
+    group:{
         type: String,
         required: true,
         enum: roles,
@@ -39,7 +45,12 @@ const UserModel = new Schema({
 UserModel.plugin(toJSON)
 UserModel.plugin(paginate)
 
-UserModel.statics.isNameTaken = async function (name, excludeUserId){
+// UserModel.statics.isNameTaken = async function (name, excludeUserId){
+//     const user = await this.findOne({name, _id: {$ne: excludeUserId}})
+//     return !!user
+// }
+
+UserModel.statics.isEmailTaken = async function (email, excludeUserId){
     const user = await this.findOne({email, _id: {$ne: excludeUserId}})
     return !!user
 }
