@@ -6,11 +6,14 @@ const app = express()
 const cors = require("cors")
 const httpStatus = require("http-status")
 const ApiError = require("./utils/ApiError")
+
 require('dotenv').config()
 
-app.use(morgan('dev'))
-app.use(express.json())
 app.use(express.urlencoded({extended: true}))
+app.use(express.json())
+app.use(morgan('dev'))
+
+
 
 const corsOptions = {
     origin: '',
