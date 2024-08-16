@@ -1,7 +1,7 @@
 const express = require('express')
 const dotenv = require('dotenv')
 const passport = require('passport')
-const router = require('./routes/auth.route')
+const router = require('./routes')
 const ApiError = require('./utils/ApiError')
 const {jwtStrategy} = require("./config/passport");
 const httpStatus = require("http-status");
@@ -43,11 +43,11 @@ app.use(cors())
 app.options('*', cors())
 
 
-// if(config.env === "production"){
-//     app.use('/Users/auth', authLimiter)
-// }
+if (config.env === "production"){
+    app.use('/Service-user/auth', authLimiter)
+}
 
-app.use('/auth', router)
+app.use('/Service-user', router)
 
 app.use((req, res, next) => {
     logger.info(`Received ${req.method} request for ${req.url}`)

@@ -31,7 +31,7 @@ const UserModel = new Schema({
         },
         private: true
     },
-    group:{
+    role:{
         type: String,
         required: true,
         enum: roles,
