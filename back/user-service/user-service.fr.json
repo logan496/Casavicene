@@ -1,0 +1,18 @@
+{
+  "auth" : {
+    "Error": {
+
+    },
+    "Success" : {
+
+    }
+  },
+  "user": {
+    "Error": {
+
+    },
+    "Success": {
+
+    }
+  }
+}

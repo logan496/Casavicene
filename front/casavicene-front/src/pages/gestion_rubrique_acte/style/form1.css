@@ -1,0 +1,39 @@
+.contener-rubrique{
+    background-color: rgba(28, 114, 162, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1080px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contener__rubrique{
+    padding: 10px;
+    /*display: grid;*/
+    input{
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 10px;
+    }
+}
+
+.criteres_button{
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    background-color: rgba(222, 114, 107, 0.7);
+    transition: 0.3s ease;
+}
+
+.criteres_button:hover{
+    background-color: rgba(222, 114, 107, 0.4);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.acte{
+    width: 700px;
+}
