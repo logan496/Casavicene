@@ -99,11 +99,11 @@ class tokenService {
     // }
     async generateAuthTokens(user) {
         const accessTokenExpires = moment().add(config.jwt.accessExpirationMinutes, 'minutes')
-        const accessToken = generateToken(user.id, accessTokenExpires, tokensTypes.ACCESS)
+        const accessToken = this.generateToken(user.id, accessTokenExpires, tokensTypes.ACCESS)
 
         const refreshTokenExpires = moment().add(config.jwt.refreshExpirationDays, 'days')
-        const refreshToken = generateToken(user.id, refreshTokenExpires, tokensTypes.REFRESH)
-        await saveToken(refreshToken, user.id, refreshTokenExpires, tokensTypes.REFRESH)
+        const refreshToken = this.generateToken(user.id, refreshTokenExpires, tokensTypes.REFRESH)
+        await this.saveToken(refreshToken, user.id, refreshTokenExpires, tokensTypes.REFRESH)
 
         return{
             access: {
@@ -128,14 +128,14 @@ class tokenService {
     //     return resertPasswordToken
     // }
     //
-    async generateResetPasswordToken(name) {
-        const user = await userService.getUserByName(name)
+    async generateResetPasswordToken(email) {
+        const user = await userService.getUserByEmail(email)
         if(!user){
             throw new ApiError(httpStatus.NOT_FOUND, 'No users found with this name')
         }
         const expires = moment().add(config.jwt.resetPasswordExpirationMinutes, 'minutes')
-        const resertPasswordToken = generateToken(user.id, expires, tokensTypes.RESET_PASSWORD)
-        await saveToken(resertPasswordToken, user.id, expires, tokensTypes.RESET_PASSWORD)
+        const resertPasswordToken = this.generateToken(user.id, expires, tokensTypes.RESET_PASSWORD)
+        await this.saveToken(resertPasswordToken, user.id, expires, tokensTypes.RESET_PASSWORD)
         return resertPasswordToken
     }
 

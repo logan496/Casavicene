@@ -2,9 +2,15 @@
   "name": "user-service",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest -i",
+    "test:watch": "jest -i --coverage",
+    "coverage:coveralls" : "jest -i --coverage --coverageReporters=text-lcov | coveralls",
+    "lint": "eslint",
+    "lint:fix": "eslint . --fix",
+    "prettier" : "prettier --check **/*.js",
+    "prettier:fix" : "prettier --write **/*.js",
     "start": "pm2 start ecosystem.config.json --no-daemon",
     "dev": "cross-env NODE_ENV=development nodemon src/index.js"
   },
