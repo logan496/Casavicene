@@ -4,7 +4,7 @@ const config = require('../../src/config/config')
 const setupTestDB = () => {
     // Se connecter à la base de données avant d'exécuter les tests
     beforeAll(async () => {
-        await mongoose.connect(config.mongoose.url)
+        await mongoose.connect(config.mongoose.url, config.mongoose.options)
     });
 
     // Nettoyer la base de données avant chaque test

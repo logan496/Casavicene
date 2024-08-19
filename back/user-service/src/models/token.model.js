@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+// const mongoose = require('mongoose')
 const {toJSON} = require('./plugins')
 const {tokenTypes} = require('../config/tokens')
 const {model, Schema} = require('mongoose')
@@ -10,7 +10,8 @@ const tokenSchema = new Schema({
         index: true
     },
     user: {
-        type: mongoose.SchemaTypes.ObjectId,
+        // type: mongoose.SchemaTypes.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'User',
         required: true,
     },
@@ -35,6 +36,10 @@ const tokenSchema = new Schema({
 
 tokenSchema.plugin(toJSON)
 
+
+/**
+ * @typedef Token
+ */
 const Token = model('Token', tokenSchema)
 
 module.exports = Token

@@ -7,6 +7,12 @@ const {tokenTypes} = require("../config/tokens");
 
 
 class authService {
+    /**
+     * Login with username and password
+     * @param {string} email
+     * @param {string} password
+     * @returns {Promise<User>}
+     */
     async loginUser (email, password) {
         const user = await userService.getUserByEmail(email)
         if(!user || !(await user.isPasswordMatch(password))){
@@ -14,14 +20,24 @@ class authService {
         }
     }
 
+    /**
+     * Logout
+     * @returns {Promise}
+     * @param refreshTokens
+     */
+
     async logout (refreshTokens){
         const refreshTokensDoc = await Token.findOne({token: refreshTokens, type: tokenTypes.REFRESH, blacklisted: false})
         if(!refreshTokensDoc){
             throw new ApiError(httpStatus.NOT_FOUND, 'Not found')
         }
-        await refreshTokensDoc.remove()
+        await refreshTokensDoc.deleteOne()
     }
-
+    /**
+     * Refresh auth tokens
+     * @param {string} refreshToken
+     * @returns {Promise<Object>}
+     */
     async refreshAuth (refreshToken){
         try{
             const refreshTokenDoc = await tokenService.verifyToken(refreshToken, tokenTypes.RESET_PASSWORD)
@@ -29,11 +45,18 @@ class authService {
             if(!user){
                 throw new Error()
             }
-            await refreshToken.remove()
+            await refreshTokenDoc.deleteOne()
+            return tokenService.generateAuthTokens(user)
         }catch (error){
             throw new ApiError(httpStatus.UNAUTHORIZED, 'Please authenticate')
         }
     }
+    /**
+     * Reset password
+     * @param {string} resetPasswordToken
+     * @param {string} newPassword
+     * @returns {Promise}
+     */
 
     async resetPassword (resetPasswordToken, newPassword){
         try{

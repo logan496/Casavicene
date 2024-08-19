@@ -50,12 +50,22 @@ UserModel.plugin(paginate)
 //     return !!user
 // }
 
+/**
+ * Check if email is taken
+ * @param {string} email - The user's email
+ * @param {ObjectId} [excludeUserId] - The id of the user to be excluded
+ * @returns {Promise<boolean>}
+ */
 UserModel.statics.isEmailTaken = async function (email, excludeUserId){
     const user = await this.findOne({email, _id: {$ne: excludeUserId}})
     return !!user
 }
-
-UserModel.statics.isPasswordMatch = async function(password){
+/**
+ * Check if password matches the user's password
+ * @param {string} password
+ * @returns {Promise<boolean>}
+ */
+UserModel.methods.isPasswordMatch = async function(password){
     const user = this;
     return bcrypt.compare(password, user.password)
 }
@@ -63,10 +73,13 @@ UserModel.statics.isPasswordMatch = async function(password){
 UserModel.pre('save', async function (next){
     const user = this
     if(user.isModified('password')){
-        user.passive = await bcrypt.hash(user.password, 8)
+        user.password = await bcrypt.hash(user.password, 8)
     }
     next()
 })
+/**
+ * @typedef User
+ */
 
 const User = model('User', UserModel)
 
