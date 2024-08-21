@@ -1,5 +1,5 @@
 const express = require('express')
-const dotenv = require('dotenv')
+
 const passport = require('passport')
 const router = require('./routes')
 const ApiError = require('./utils/ApiError')
@@ -16,7 +16,7 @@ const mongoSanitize = require('express-mongo-sanitize')
 const compression = require('compression')
 const logger = require("./config/logger")
 
-dotenv.config()
+
 
 const app = express()
 

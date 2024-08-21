@@ -16,7 +16,8 @@ const {tokenTypes} = require('../../../src/config/tokens')
 const {userOne, admin, insertUsers} = require('../../fixtures/user.fixture')
 const {userOneAccessToken, adminAccessToken} = require('../../fixtures/token.fixture')
 const { token } = require('morgan');
-// const jest = require('mocha/lib/runnable');
+
+
 
 setupTestDB()
 
@@ -61,17 +62,19 @@ describe('Auth routes', () =>  {
             await insertUsers([userOne])
 
             newUser.email = userOne.email
-            const res = await request(app).post('/Service-user/auth/register')
-                .send(newUser)
-                .expect(httpStatus.BAD_REQUEST)
+            await request(app)
+              .post('/Service-user/auth/register')
+              .send(newUser)
+              .expect(httpStatus.BAD_REQUEST)
         })
 
         test('should return 400 if length of the password is less than 8', async () => {
             newUser.password = 'invalid'
 
-            const res = await request(app).post('/Service-user/auth/register')
-                .send(newUser)
-                .expect(httpStatus.BAD_REQUEST)
+            await request(app)
+              .post('/Service-user/auth/register')
+              .send(newUser)
+              .expect(httpStatus.BAD_REQUEST)
         })
 
         test('should return 400 if password not contains both letter and numbers', async () => {
@@ -511,7 +514,7 @@ describe('Auth routes', () =>  {
             })
 
             test('should call next with no erros if user has required rights', async () =>  {
-                await inserUsers( [admin])
+                await insertUsers( [admin])
                 const req = httpMocks.createRequest({
                     headers: {
                         Authorization: `Bearer ${adminAccessToken}`

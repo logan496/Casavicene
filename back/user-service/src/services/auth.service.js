@@ -74,4 +74,4 @@ class authService {
     }
 }
 
-module.exports = authService
+module.exports = new authService()

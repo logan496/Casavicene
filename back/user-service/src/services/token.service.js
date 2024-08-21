@@ -11,8 +11,8 @@ const {tokensTypes} = require('../config/tokens')
 class tokenService {
     /**
      * Generate token
-     * @param {ObjectId} userId
-     * @param {Moment} expires
+     * @param {module:mongoose.Types.ObjectId} userId
+     * @param {moment.Moment} expires
      * @param {string} [secret]
      * @returns {string}
      */
@@ -107,4 +107,4 @@ class tokenService {
     }
 }
 
-module.exports = tokenService
+module.exports = new tokenService()

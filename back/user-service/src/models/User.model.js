@@ -1,7 +1,8 @@
 const {model, Schema} =  require("mongoose")
 const {toJSON, paginate} = require('./plugins')
 const {roles} =  require('../config/userRoles')
-
+const validator = require('validator')
+const bcrypt = require('bcrypt')
 const UserModel = new Schema({
     name:{
         type: String,
@@ -14,11 +15,16 @@ const UserModel = new Schema({
         trim: true,
         unique: true,
         lowercase: true,
-        validate(value) {
-            if(!validator.isEmail(value)){
-                throw new Error('Invalid email')
-            }
+        // validate(value) {
+        //     if(!validator.isEmail(value)){
+        //         throw new Error('Invalid email')
+        //     }
+        // }
+        validate: {
+            validator: (v) => validator.isEmail(v),
+            message: (props) => `${props.value} is not an email`
         }
+
     },
     password: {
         type: String,
@@ -44,11 +50,6 @@ const UserModel = new Schema({
 
 UserModel.plugin(toJSON)
 UserModel.plugin(paginate)
-
-// UserModel.statics.isNameTaken = async function (name, excludeUserId){
-//     const user = await this.findOne({name, _id: {$ne: excludeUserId}})
-//     return !!user
-// }
 
 /**
  * Check if email is taken

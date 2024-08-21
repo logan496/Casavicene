@@ -20,8 +20,4 @@ defaultRoutes.forEach((route) => {
     router.use(route.path, route.route)
 })
 
-// if(config.env ===  'development'){
-//
-// }
-
 module.exports = router

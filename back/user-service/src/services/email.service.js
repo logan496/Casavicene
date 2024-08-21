@@ -52,4 +52,4 @@ class emailService {
 //     await sendEmail(to, subject, text)
 // }
 
-module.exports = emailService
+module.exports = new emailService()
